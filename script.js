@@ -9,13 +9,13 @@ $(document).ready(function () {
     //EVENT LISTENER 
     $(".saveBtn").on("click", function () {
 
-        //
+        //setting variable time to the id in the html
         var time = $(this).attr("id").split("-")[0]
-console.log(this)
+
+        //making the input from the user savable and connected to the time slot it was written in
         var userInfo = $("#" + time + "-text").val()
 
-        console.log(time, userInfo)
-
+        //setting a local storage key for time and the users info
         localStorage.setItem(time, userInfo)
     })
 
@@ -23,7 +23,7 @@ console.log(this)
     // connecting moment.js with this variable
     var hour = moment().hour()
 
-// i represents the hours between 7am and 
+    // i represents the hours between 7am and 
     for (var i = 7; i <= 20; i++) {
 
         //retrieves stored items from each time
