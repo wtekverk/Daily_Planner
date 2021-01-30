@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         //
         var time = $(this).attr("id").split("-")[0]
-
+console.log(this)
         var userInfo = $("#" + time + "-text").val()
 
         console.log(time, userInfo)
@@ -19,12 +19,17 @@ $(document).ready(function () {
         localStorage.setItem(time, userInfo)
     })
 
+
+    // connecting moment.js with this variable
     var hour = moment().hour()
 
+// i represents the hours between 7am and 
     for (var i = 7; i <= 20; i++) {
 
-
+        //retrieves stored items from each time
         $("#" + i + "-text").val(localStorage.getItem(i))
+
+        //this sets the classes by time which determine the color of the text field 
         if (i < hour) {
             $("#" + i + "-text").addClass("past")
         } else if (i === hour) {
@@ -35,37 +40,6 @@ $(document).ready(function () {
 
 
     }
-
-
-    // function hourCheck() {
-
-    //     var hour = moment().hour(); // Number
-
-
-    //     $("textarea").each(function () {
-
-
-    //         var time = parseInt($(this).attr("id").split("-")[0])
-    //         var text = "#" + time + "-text";
-
-    //         if (hour > time) {
-    //             $(text).attr("class", "past")
-    //         } else if (hour == time) {
-    //             $(text).attr("class", "present")
-    //         } else {
-    //             $(text).attr("class", "future")
-    //         }
-
-    //         console.log(text)
-
-    //     })
-
-
-    // }
-
-
-    // hourCheck()
-
 
 
 })
